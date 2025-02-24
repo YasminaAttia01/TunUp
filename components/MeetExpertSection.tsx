@@ -1,9 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
 
+
 const MeetExpertSection = () => {
   return (
-    <section className="flex flex-col lg:h-screen py-20 overflow-hidden max-container padding-container mt-16 animate-fade-in ">
+    <div className="flex flex-col lg:h-screen py-20 overflow-hidden max-container padding-container mt-16 animate-fade-in ">
       <div className="flex flex-col lg:flex-row items-center h-full w-full px-8 max-container padding-container bg-[url(/images/section-bg.png)] rounded-3xl mt-2">
       <div 
           className="w-auto lg:w-1/2 h-auto flex items-center justify-center opacity-0 animate-slide-in-right"
@@ -28,14 +29,9 @@ const MeetExpertSection = () => {
           
         </div> 
       </div>
-      <div className="flex flex-col lg:flex-row items-center h-full w-full px-8 max-container padding-container bg-secondary rounded-3xl mt-5">
-            
-            <div>
-            <h1 className="text-3xl font-bold mt-2 text-teritiary text-center justify-center items-center bold-52 lg:bold-50">Meet the expert people</h1>
-            </div>
-
-        </div>
-    </section>
+      
+    </div>
+    
   );
 };
 

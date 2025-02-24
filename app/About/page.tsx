@@ -1,10 +1,11 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+ 
 /* eslint-disable @next/next/no-img-element */
 import React from 'react'
 import Link from 'next/link'
 import Hero from '@/components/Hero'
 import NumbersSection from "@/components/NumbersSection"
 import MeetExpertSection from '@/components/MeetExpertSection'
+import {expertPeople} from "@/constants/index"
 
 const page = () => {
   return (
@@ -50,6 +51,32 @@ const page = () => {
       
     </div>
     <MeetExpertSection/>
+    <div>
+    <div className="bg-secondary py-10 rounded-lg">
+      <h2 className="text-teritiary text-5xl font-semibold text-center mb-8">
+        Meet the expert people
+      </h2>
+      <div className="flex flex-wrap justify-center gap-6 px-4">
+        {expertPeople.map((expertPeople) => (
+          <div key={expertPeople.id} className="relative group w-[150px] md:w-[200px]">
+            <img
+              src={expertPeople.image}
+              alt={expertPeople.name}
+              className="rounded-full w-full h-auto transition duration-300 transform group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-60 opacity-0 flex items-center justify-center text-white text-sm text-center transition-opacity duration-300 group-hover:opacity-100 rounded-full">
+              {expertPeople.position}
+            </div>
+            <p className="text-white text-center mt-3 text-sm font-semibold">
+              {expertPeople.name}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    </div>
+    
     <NumbersSection/>
       
     </>

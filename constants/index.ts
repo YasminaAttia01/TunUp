@@ -125,44 +125,76 @@ export const businessUnits = [
   },
 ];
 export const expertPeople=[
-  {
+  { id:1,
     image:"/images/SahbiAloui.jpg",
     name:"Sahbi Aloui",
     position:" Facilities Manager"
   },
-  {
+  { id:2,
     image:"/images/HejerBenzarti.jpg",
     name:"Hejer Benzarti",
     position:"Head of Customer Care Operation"
   },
-  {
+  { id:3,
     image:"",
     name:"Imed Kadri",
     position:"Head of Finance"
   },
-  {
+  { id:4,
     image:"/images/OlfaElGhoul.jpg",
     name:"Olfa El Ghoul",
     position:"Head of Customer Care Operation"
   },
-  {
+  { id:5,
     image:"/images/BadraGharbi.jpg",
     name:"Badra Gharbi",
     position:"Site HR Manager"
   },
-  {
+  { id:6,
     image:"/images/ImedBenHmida.jpg",
     name:"Imed Ben Hmida",
     position:"CCare Technology Manager"
   },
-  {
+  { id:7,
     image:"images/MyriamAissioui.jpg",
     name:"Myriam Aissioui",
     position:"Care Design Manager"
   },
-  {
+  { id:8,
     image:"",
     name:"Azza Ayadi",
     position:"Product Manager"
   },
+]
+export const Services=[
+  {
+    title:"Customer Support",
+    icon:"",
+    description:"Our customer care team is committed to delivering personalized support, ensuring each client's needs are met efficiently and with a friendly approach."
+  },
+  {
+    title:"Graphic design",
+    icon:"",
+    description:"Our graphic design team transforms your ideas into stunning visuals, combining creativity and expertise to bring your vision to life."
+  },
+  {
+    title:"Marketing",
+    icon:"",
+    description:"Our marketing team drives growth and brand awareness through innovative strategies, connecting our services with the unique needs of our clients."
+  },
+  {
+    title:"Business Analytics",
+    icon:"",
+    description:"Our Business Analytics team leverages data insights to optimize operations and enhance decision-making, ensuring we meet our clients' evolving needs effectively."
+  },
+  {
+    title:"Software Engineering",
+    icon:"",
+    description:"Our software engineering team builds robust and innovative solutions, enhancing our services and delivering seamless user experiences for our clients."
+  }
+  
+  
+  
+  
+  
 ]

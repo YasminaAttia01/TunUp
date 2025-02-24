@@ -37,16 +37,34 @@ module.exports = {
   					transform: 'translateX(0)',
   					opacity: '1'
   				}
+  			},
+  			'accordion-down': {
+  				from: {
+  					height: '0'
+  				},
+  				to: {
+  					height: 'var(--radix-accordion-content-height)'
+  				}
+  			},
+  			'accordion-up': {
+  				from: {
+  					height: 'var(--radix-accordion-content-height)'
+  				},
+  				to: {
+  					height: '0'
+  				}
   			}
   		},
   		animation: {
   			'fade-in': 'fadeIn 1s ease-out forwards',
   			'slide-in-left': 'slideInLeft 1s ease-out forwards',
-  			'slide-in-right': 'slideInRight 1s ease-out forwards'
+  			'slide-in-right': 'slideInRight 1s ease-out forwards',
+  			'accordion-down': 'accordion-down 0.2s ease-out',
+  			'accordion-up': 'accordion-up 0.2s ease-out'
   		},
   		colors: {
-			primary: "#f30437",
-			secondary: "#0d326f",
+  			primary: '#f30437',
+  			secondary: '#0d326f',
   			teritiary: '#D9D9D9',
   			grey: '#878680',
   			light: '#fff8eb',
@@ -94,7 +112,6 @@ module.exports = {
   				'5': 'hsl(var(--chart-5))'
   			}
   		},
-  		
   		screens: {
   			xs: '400px',
   			'3xl': '1680px',

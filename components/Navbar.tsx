@@ -3,9 +3,13 @@ import { NAV_LINKS } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState<string | null>(null);
+  const [toggle, setToggle] = useState(false);
+
+
 
   return (
     <nav className="flexBetween max-w-screen-xl mx-auto h-16 relative z-30 bg-teritiary mt-4 py-2 px-6 rounded-full shadow-lg">
@@ -40,17 +44,36 @@ const Navbar = () => {
           </li>
         ))}
       </ul>
-
-      {/* Mobile Menu */}
-      <div className="lg:hidden flex items-center">
-        <Image
-          src="/icons/menu.svg"
-          alt="menu"
-          width={24}
-          height={24}
-          className="inline-block cursor-pointer"
-        />
-      </div>
+    {/* Mobile Navigation */}
+            <Menu
+                onClick={() => setToggle(!toggle)}
+                className="text-secondary cursor-pointer lg:hidden"
+                size={28}
+            />
+            {toggle && (
+                <div className="fixed top-0 right-0 bg-black bg-opacity-75 shadow-lg rounded-l-xl w-64 pt-4 pb-8 lg:hidden h-fit flex flex-col items-end gap-6 hover:text-secondary">
+                    <X
+                        onClick={() => setToggle(false)}
+                        className="text-white cursor-pointer font-bold mr-4"
+                        size={42}
+                    />
+                    <div className="flex flex-col items-start justify-start gap-4 ml-10 w-full">
+                        {NAV_LINKS.map((link) => (
+                            <div key={link.label} className="w-full">
+                                { (
+                                    <Link
+                                        href={link.href}
+                                        className="text-lg py-2 px-4 font-semibold text-white rounded-l-xl hover:bg-gray-700 transition-all"
+                                        onClick={() => setToggle(false)}
+                                    >
+                                        {link.label}
+                                    </Link>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
     </nav>
   );
 };

@@ -43,6 +43,10 @@ const Navbar = () => {
             )}
           </li>
         ))}
+        <a href="/api/auth/login"><img src="icons/user.png" alt="user login" width={20} height={20}/></a>
+         
+        
+       
       </ul>
     {/* Mobile Navigation */}
             <Menu
@@ -51,19 +55,19 @@ const Navbar = () => {
                 size={28}
             />
             {toggle && (
-                <div className="fixed top-0 right-0 bg-black bg-opacity-75 shadow-lg rounded-l-xl w-64 pt-4 pb-8 lg:hidden h-fit flex flex-col items-end gap-6 hover:text-secondary">
+                <div className="fixed top-0 right-0 bg-black bg-opacity-75 shadow-lg rounded-l-xl w-64 pt-4 pb-8 lg:hidden h-fit flex flex-col items-end gap-6 mt-4 ">
                     <X
-                        onClick={() => setToggle(false)}
-                        className="text-white cursor-pointer font-bold mr-4"
+                        onClick={() => setToggle(false)} 
+                        className="text-white cursor-pointer font-bold mr-4  hover:text-primary"
                         size={42}
                     />
                     <div className="flex flex-col items-start justify-start gap-4 ml-10 w-full">
                         {NAV_LINKS.map((link) => (
-                            <div key={link.label} className="w-full">
+                            <div key={link.label} className="w-full ">
                                 { (
                                     <Link
                                         href={link.href}
-                                        className="text-lg py-2 px-4 font-semibold text-white rounded-l-xl hover:bg-gray-700 transition-all"
+                                        className="text-lg py-2 px-4 font-semibold text-white rounded-l-xl transition-all  hover:text-primary"
                                         onClick={() => setToggle(false)}
                                     >
                                         {link.label}

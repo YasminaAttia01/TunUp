@@ -56,7 +56,7 @@ export const contact = [
         icon: "/icons/phone.png",
     },
     {
-        label: "ctunup-hr@pixartprinting.com",
+        label: "tunup-hr@pixartprinting.com",
         link: "mailto:tunup-hr@pixartprinting.com",
         icon: "/icons/mail.png",
     },

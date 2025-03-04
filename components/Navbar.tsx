@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client"
 import { NAV_LINKS } from "@/constants";
 import Image from "next/image";
@@ -43,7 +44,7 @@ const Navbar = () => {
             )}
           </li>
         ))}
-        <a href="/api/auth/login"><img src="icons/user.png" alt="user login" width={20} height={20}/></a>
+        <Link href="/api/auth/login"><img src="icons/user.png" alt="user login" width={20} height={20}/></Link>
          
         
        

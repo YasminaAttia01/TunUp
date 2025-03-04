@@ -3,6 +3,10 @@ import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
+import { toast } from "react-toastify";
+import axios from 'axios';
+
+
 
 // Define the type for the form data
 type FormData = {
@@ -26,7 +30,7 @@ const FormSection = () => {
   });
 
   const [errors, setErrors] = useState<Partial<FormData>>({}); // Partial<FormData> allows errors to be a subset of FormData
-
+  
   const validateForm = (): boolean => {
     const newErrors: Partial<FormData> = {};
 
@@ -54,11 +58,39 @@ const FormSection = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (validateForm()) {
-      // Submit the form
-      console.log('Form submitted successfully', formData);
+      try {
+
+        const backendUrl = process.env.NEXT_PUBLIC_BACKEND_BASE_URL
+        console.log(backendUrl)
+
+        if (!backendUrl) {
+          throw new Error('Backend URL is not defined in the environment variables');
+        }
+        console.log('Form data being submitted:', formData);
+        console.log('Backend URL:', process.env.NEXT_PUBLIC_BACKEND_BASE_URL);
+
+
+        const response = await axios.post(`${backendUrl}/emails`, formData);
+  
+        toast.success('Message sent successfully!');
+        console.log('Form submitted successfully', response.data);
+
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phoneNumber: '',
+          subject: '',
+          message: ''
+        });
+      } catch (error) {
+    
+        toast.error('Failed to send message.');
+        console.error('Error sending message:', error);
+      }
     } else {
       console.log('Form validation failed');
     }
@@ -93,7 +125,7 @@ const FormSection = () => {
             </div>
             <div className="flex items-center gap-3">
               <FaEnvelope className="text-xl" />
-              <span>ctunup-hr@pixartprinting.com</span>
+              <span>tunup-hr@pixartprinting.com</span>
             </div>
             <div className="flex items-center gap-3">
               <FaMapMarkerAlt className="text-xl" />

@@ -64,13 +64,13 @@ const FormSection = () => {
       try {
 
         const backendUrl = process.env.NEXT_PUBLIC_BACKEND_BASE_URL
-        console.log(backendUrl)
+        
 
         if (!backendUrl) {
           throw new Error('Backend URL is not defined in the environment variables');
         }
         console.log('Form data being submitted:', formData);
-        console.log('Backend URL:', process.env.NEXT_PUBLIC_BACKEND_BASE_URL);
+      
 
 
         const response = await axios.post(`${backendUrl}/emails`, formData);

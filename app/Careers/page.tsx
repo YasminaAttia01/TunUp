@@ -1,6 +1,7 @@
 import Hero from '@/components/Hero'
 import React from 'react'
 import WorkPrioritySection from '@/components/WorkPrioritySection'
+import JobOfferCart from '@/components/JobOfferCart'
 
 const Careers = () => {
   return (
@@ -13,6 +14,7 @@ const Careers = () => {
       buttonLink="/"
       image="/images/CareerHero.png"/>
       <WorkPrioritySection/>
+      <JobOfferCart/>
       
     </>
   )

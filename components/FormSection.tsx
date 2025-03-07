@@ -1,14 +1,13 @@
 "use client"
 import React, { useState, ChangeEvent, FormEvent } from 'react';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 import { toast } from "react-toastify";
 import axios from 'axios';
+import { ToastContainer } from 'react-toastify';
+import ContactInfo from './ContactInfo';
 
 
-
-// Define the type for the form data
 type FormData = {
   firstName: string;
   lastName: string;
@@ -75,7 +74,16 @@ const FormSection = () => {
 
         const response = await axios.post(`${backendUrl}/emails`, formData);
   
-        toast.success('Message sent successfully!');
+        toast.success('Message sent successfully!', {
+          position: "top-right",
+          autoClose: 3000, // Close after 3 seconds
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+  
         console.log('Form submitted successfully', response.data);
 
         setFormData({
@@ -88,10 +96,27 @@ const FormSection = () => {
         });
       } catch (error) {
     
-        toast.error('Failed to send message.');
+        toast.error('Failed to send message. Please try again.', {
+          position: "top-right",
+          autoClose: 3000, // Close after 3 seconds
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
         console.error('Error sending message:', error);
       }
     } else {
+      toast.error('Please fix the errors in the form before submitting.', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       console.log('Form validation failed');
     }
   };
@@ -110,29 +135,14 @@ const FormSection = () => {
       phoneNumber: value || ''
     });
   };
+  
+
 
   return (
+    
     <section className="flex flex-col py-20 overflow-hidden max-container padding-container mt-16 animate-fade-in">
       <div className="flex flex-col lg:flex-row bg-white shadow-lg rounded-lg overflow-hidden">
-        {/* Section Infos */}
-        <div className="bg-red-600 text-white p-8 w-full lg:w-1/3">
-          <h2 className="text-2xl font-bold">Contact Information</h2>
-          <p className="mt-2">Say something to start a live chat!</p>
-          <div className="mt-20 space-y-4">
-            <div className="flex items-center gap-3">
-              <FaPhone className="text-xl" />
-              <span>+216 70258982</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <FaEnvelope className="text-xl" />
-              <span>tunup-hr@pixartprinting.com</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <FaMapMarkerAlt className="text-xl" />
-              <span>Les Berges du Lac 3 (Tunis Nord, 2015)</span>
-            </div>
-          </div>
-        </div>
+      <ContactInfo/>
 
         {/* Section Formulaire */}
         <div className="p-8 w-full lg:w-2/3">
@@ -235,6 +245,7 @@ const FormSection = () => {
           </form>
         </div>
       </div>
+      <ToastContainer />
     </section>
   );
 };

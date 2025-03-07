@@ -27,8 +27,10 @@ const JobOfferCart = () => {
   const indexOfLastJob = currentPage * JOBS_PER_PAGE;
   const indexOfFirstJob = indexOfLastJob - JOBS_PER_PAGE;
   const currentJobs = jobs.slice(indexOfFirstJob, indexOfLastJob);
+  const totalPages = Math.ceil(jobs.length / JOBS_PER_PAGE);
+
   const nextPage = () => {
-    if (currentPage < Math.ceil(jobs.length / JOBS_PER_PAGE)) {
+    if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
     }
   };
@@ -39,6 +41,14 @@ const JobOfferCart = () => {
     }
   };
 
+  const goToFirstPage = () => {
+    setCurrentPage(1);
+  };
+
+  const goToLastPage = () => {
+    setCurrentPage(totalPages);
+  };
+
   return (
     <div className="flex flex-col lg:h-screen py-20 overflow-hidden max-container padding-container mt-10 animate-fade-in">
       <div className="bg-gray-50 py-16 px-6 md:px-10 text-center rounded-2xl">
@@ -46,8 +56,7 @@ const JobOfferCart = () => {
           <span className="text-primary">OPEN</span> POSITIONS
         </h2>
         <div className="p-6 max-w-6xl mx-auto">
-          <div className="grid gap-6  lg:max-h-[75vh] lg:overflow-y-auto overflow-hidden">
-            {/* Scrollable area on large screens */}
+          <div className="grid gap-6 lg:max-h-[75vh] lg:overflow-y-auto overflow-hidden">
             {currentJobs.map((job) => (
               <div
                 key={job.id}
@@ -56,50 +65,52 @@ const JobOfferCart = () => {
               >
                 <h2 className="text-xl font-bold text-secondary hover:text-primary">{job.title.label}</h2>
                 <div className="grid grid-cols-4 gap-4 items-start w-full">
-  <div className="flex flex-col">
-    <p className="text-gray-600">{job.department.label}</p>
-  </div>
-  <div className="flex flex-col">
-    <p className="text-gray-500">📌 {job.location.label} (Hybrid)</p>
-  </div>
-  <div className="flex flex-col">
-    <p className="text-gray-500">🕒 Full-Time CDI</p>
-  </div>
-  
-  <div className="flex flex-col justify-start">
-    <a
-      href={job.postingUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="bg-primary text-white py-2 px-2 rounded-2xl text-center hover:bg-red-800 transition-colors duration-300"
-    >
-     View Job Description
-    </a>
-  </div>
-</div>
-
-
+                  <div className="flex flex-col">
+                    <p className="text-gray-600">{job.department.label}</p>
+                  </div>
+                  <div className="flex flex-col">
+                    <p className="text-gray-500">📌 {job.location.label} (Hybrid)</p>
+                  </div>
+                  <div className="flex flex-col">
+                    <p className="text-gray-500">🕒 Full-Time CDI</p>
+                  </div>
+                  <div className="flex flex-col justify-start">
+                    <a
+                      href={job.postingUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-primary text-white py-2 px-2 rounded-2xl text-center hover:bg-red-800 transition-colors duration-300"
+                    >
+                      View Job Description
+                    </a>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
-          <div className="flex justify-between mt-4">
+
+          {/* Pagination Controls */}
+          <div className="flex justify-between items-center mt-4">
             <button
-              onClick={prevPage}
+              onClick={goToFirstPage}
               disabled={currentPage === 1}
               className="bg-secondary text-white px-4 py-2 rounded-lg disabled:bg-gray-400"
             >
               Previous
             </button>
+            
+            <span className="text-gray-600">
+              Page {currentPage} of {totalPages}
+            </span>
+            
             <button
-              onClick={nextPage}
-              disabled={currentPage === Math.ceil(jobs.length / JOBS_PER_PAGE)}
+              onClick={goToLastPage}
+              disabled={currentPage === totalPages}
               className="bg-secondary text-white px-4 py-2 rounded-lg disabled:bg-gray-400"
             >
               Next
             </button>
           </div>
-
-          
         </div>
       </div>
     </div>

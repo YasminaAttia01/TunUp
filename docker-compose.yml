@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000" # Expose le port 3000 de l'application
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - .:/app # Monter le code source pour le développement
+      - /app/node_modules # Éviter d'écraser node_modules
+    command: npm run dev
+    restart: unless-stopped

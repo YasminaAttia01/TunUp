@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 import AuthProvider from "./providers/UserProvider";
+import ScrollAnimationWrapper from "./providers/ScrollAnimationWrapper ";
 
 export const metadata: Metadata = {
   title: "TunUp",
@@ -21,7 +22,10 @@ export default function RootLayout({
      <body>
           <Navbar/>
           <main className="relative overflow-hidden">
-          {children}
+            <ScrollAnimationWrapper>
+            {children}
+            </ScrollAnimationWrapper>
+          
           </main>
           <Footer/>
         </body>

@@ -4,6 +4,7 @@ import BusinessUnitsSection from "@/components/BusinessUnitsSection";
 import ValuesSection from "@/components/ValuesSection";
 import AboutSection from "@/components/AboutSection";
 import WorkTogetherSection from "@/components/WorkTogetherSection";
+import ScrollAnimationWrapper from "./providers/ScrollAnimationWrapper ";
 
 export default function Home() {
   return (
@@ -16,11 +17,16 @@ export default function Home() {
         buttonText="Get to Know us Better"
         buttonLink="/About"
         image="/images/tunUp.jpg"/>
+
       <AboutSection/>
+      <ScrollAnimationWrapper>
       <WorkTogetherSection/>
       <BusinessUnitsSection />
       <ValuesSection />
       <PartnersSection />
+      </ScrollAnimationWrapper>
+      
+      
     </>
   );
 }

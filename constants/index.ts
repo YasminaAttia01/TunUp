@@ -119,7 +119,7 @@ export const businessUnits = [
     link: "/unit3",
   },
   {
-    image: "/images/printdeal.png",
+    image: "/images/druke.png",
     text: "Printdeal.be offers customizable online printing services for products like flyers and business cards, with free design templates available.",
     link: "https://www.printdeal.be/nl",
   },
@@ -136,7 +136,7 @@ export const expertPeople=[
     position:"Head of Customer Care Operation"
   },
   { id:3,
-    image:"",
+    image:"/images/Imed-Kadri.jpg",
     name:"Imed Kadri",
     position:"Head of Finance"
   },
@@ -161,7 +161,7 @@ export const expertPeople=[
     position:"Care Design Manager"
   },
   { id:8,
-    image:"",
+    image:"/images/Azza-Ayadi.jpg",
     name:"Azza Ayadi",
     position:"Product Manager"
   },
@@ -169,27 +169,27 @@ export const expertPeople=[
 export const Services=[
   {
     title:"Customer Support",
-    icon:"",
+    icon:"/services/Customer-Care.svg",
     description:"Our customer care team is committed to delivering personalized support, ensuring each client's needs are met efficiently and with a friendly approach."
   },
   {
     title:"Graphic design",
-    icon:"",
+    icon:"/services/design.svg",
     description:"Our graphic design team transforms your ideas into stunning visuals, combining creativity and expertise to bring your vision to life."
   },
   {
     title:"Marketing",
-    icon:"",
+    icon:"/services/marketing.svg",
     description:"Our marketing team drives growth and brand awareness through innovative strategies, connecting our services with the unique needs of our clients."
   },
   {
     title:"Business Analytics",
-    icon:"",
+    icon:"/services/pricing.svg",
     description:"Our Business Analytics team leverages data insights to optimize operations and enhance decision-making, ensuring we meet our clients' evolving needs effectively."
   },
   {
     title:"Software Engineering",
-    icon:"",
+    icon:"/services/software.svg",
     description:"Our software engineering team builds robust and innovative solutions, enhancing our services and delivering seamless user experiences for our clients."
   }
   

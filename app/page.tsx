@@ -16,7 +16,7 @@ export default function Home() {
         We offer a better design for your digital products."
         buttonText="Get to Know us Better"
         buttonLink="/About"
-        image="/images/tunUp.jpg"/>
+        image="/images/tunup-background.jpg"/>
 
       <AboutSection/>
       <ScrollAnimationWrapper>

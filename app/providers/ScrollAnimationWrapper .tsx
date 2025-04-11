@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client"; // Assurez-vous que cette ligne est présente
 import React, { useRef, ReactNode, useEffect } from "react";
 

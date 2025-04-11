@@ -75,7 +75,7 @@ const Hero = ({ title, highlight, description, buttonText, buttonLink = "/", ima
         <img 
           src={image} 
           alt="Hero Image" 
-          className="w-full max-w-lg lg:max-w-xl rounded-5xl shadow-lg"
+          className="w-full max-w-lg lg:max-w-xl rounded-3xl shadow-lg"
         />
       </motion.div>
     </section>

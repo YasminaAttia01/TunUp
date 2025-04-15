@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
  
 "use client";
 import { NAV_LINKS } from "@/constants";
@@ -5,51 +6,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { useUser } from "@auth0/nextjs-auth0/client";
 
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState<string | null>(null);
   const [toggle, setToggle] = useState(false);
-  const { user, isLoading } = useUser();
-  const [token, setToken] = useState<string | null>(null);
-  const apiGateway = process.env.NEXT_PUBLIC_API_GATEWAY_URL;
 
-  useEffect(() => {
-    const fetchToken = async () => {
-      console.log(token);
-      if (user) {
-        try {
-          const response = await fetch("/api/auth/token", {
-          });
-          
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          
-          const data = await response.json();
-          setToken(data.accessToken);
-          // Only call protected API if we have a token
-          if (data.accessToken && apiGateway) {
-            const protectedResponse = await fetch(`${apiGateway}/api/protected`, {
-              method: "GET",
-              headers: {
-                Authorization: `Bearer ${data.accessToken}`,
-                "Content-Type": "application/json",
-              },
-            });
-
-            if (!protectedResponse.ok) {
-              console.error("Protected API error:", await protectedResponse.text());
-            }
-          }
-        } catch (error) {
-          console.error("Error in fetchToken:", error);
-        }
-      }
-    };
-    
-    fetchToken();
-  }, [user, apiGateway, token]);
 
   return (
     <nav className="flexBetween max-w-screen-xl mx-auto h-16 relative z-30 bg-teritiary mt-4 py-2 px-6 rounded-full shadow-lg">
@@ -87,44 +48,6 @@ const Navbar = () => {
             )}
           </li>
         ))}
-
-        {!isLoading && (
-          <li>
-            {user ? (
-              <div className="flex items-center gap-4">
-                <Image 
-                  src={user.picture ?? "/default-user.png"} 
-                  alt="user" 
-                  width={30} 
-                  height={30} 
-                  className="rounded-full"
-                  unoptimized
-                />
-                <Link 
-                  href="/api/auth/logout" 
-                  className="flex items-center gap-2"
-                  prefetch={false}
-                >
-                  <span>Logout</span>
-                </Link>
-              </div>
-            ) : (
-              <Link 
-                href="/api/auth/login" 
-                className="flex items-center gap-2"
-                prefetch={false}
-              >
-                <Image 
-                  src="/icons/user.png" 
-                  alt="user login" 
-                  width={20} 
-                  height={20}
-                />
-                <span>Login</span>
-              </Link>
-            )}
-          </li>
-        )}
       </ul>
 
       {/* Mobile Menu Toggle */}
@@ -158,39 +81,7 @@ const Navbar = () => {
               </div>
             ))}
 
-            {!isLoading && (
-              <div className="w-full">
-                {user ? (
-                  <div className="flex flex-col gap-2">
-                    <Image 
-                      src={user.picture ?? "/default-user.png"} 
-                      alt="user" 
-                      width={30} 
-                      height={30} 
-                      className="rounded-full"
-                      unoptimized
-                    />
-                    <span>{user.name || user.nickname}</span>
-                    
-                    <Link
-                      href="/api/auth/logout"
-                      className="text-lg py-2 px-4 font-semibold text-white rounded-l-xl transition-all hover:text-primary"
-                      onClick={() => setToggle(false)}
-                    >
-                      Logout
-                    </Link>
-                  </div>
-                ) : (
-                  <Link
-                    href="/api/auth/login"
-                    className="text-lg py-2 px-4 font-semibold text-white rounded-l-xl transition-all hover:text-primary"
-                    onClick={() => setToggle(false)}
-                  >
-                    Login
-                  </Link>
-                )}
-              </div>
-            )}
+            
           </div>
         </div>
       )}

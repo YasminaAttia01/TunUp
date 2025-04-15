@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
-import AuthProvider from "./providers/UserProvider";
 import ScrollAnimationWrapper from "./providers/ScrollAnimationWrapper ";
 
 export const metadata: Metadata = {
@@ -18,7 +16,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-     <AuthProvider>
      <body>
           <Navbar/>
           <main className="relative overflow-hidden">
@@ -29,10 +26,6 @@ export default function RootLayout({
           </main>
           <Footer/>
         </body>
-
-     </AuthProvider>
-        
-      
     </html>
   );
 }

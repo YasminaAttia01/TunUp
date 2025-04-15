@@ -1,5 +1,4 @@
 import Hero from "@/components/Hero";
-import PartnersSection from "@/components/PartnersSection";
 import BusinessUnitsSection from "@/components/BusinessUnitsSection";
 import ValuesSection from "@/components/ValuesSection";
 import AboutSection from "@/components/AboutSection";
@@ -23,7 +22,6 @@ export default function Home() {
       <WorkTogetherSection/>
       <BusinessUnitsSection />
       <ValuesSection />
-      <PartnersSection />
       </ScrollAnimationWrapper>
       
       

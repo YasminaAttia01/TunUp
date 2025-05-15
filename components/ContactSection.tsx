@@ -16,7 +16,7 @@ const ContactSection = () => {
             Reach out to <br />
             <span className="text-primary">US</span>
           </h3>
-          <p className="mt-4 text-lg text-teritiary">
+          <p className="mt-4 text-lg text-black">
           For inquiries or to schedule a visit, please reach out using the details below. <br /> Use the map for directions to our location. We look forward to assisting you.
 
 

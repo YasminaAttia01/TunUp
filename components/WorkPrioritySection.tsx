@@ -7,7 +7,15 @@ const WorkPrioritySection = () => {
           </h2>
   
         
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-3">
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-4">
+          <div className="flex flex-col items-center">
+              <div className="w-40 h-20 bg-primary rounded-t-full flex items-end justify-center">
+                <h3 className="text-white font-bold text-lg">Hybrid work</h3>
+              </div>
+              <p className="mt-4 text-gray-600 text-sm max-w-xs">
+              Hybrid work provides employees with greater flexibility, autonomy, and work-life integration, which can lead to higher job satisfaction. 
+              </p>
+            </div>
            
             <div className="flex flex-col items-center">
               <div className="w-40 h-20 bg-primary rounded-t-full flex items-end justify-center">

@@ -2,7 +2,7 @@ import React from 'react';
 
 const AboutSection = () => {
   return (
-    <section className="flex flex-col lg:h-screen py-20 overflow-hidden max-container padding-container bg-gray-50 mt-16">
+    <section className="flex flex-col lg:h-screen py-20 overflow-hidden max-container padding-container bg-gray-50 mt-16 rounded-3xl">
       <div className="flex flex-col lg:flex-row items-center h-full w-full px-8 max-container padding-container">
         
         {/* Video Section */}

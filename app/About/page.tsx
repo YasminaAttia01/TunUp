@@ -54,7 +54,7 @@ const page = () => {
     <div>
     <div className="bg-secondary py-10 rounded-lg">
       <h2 className="text-teritiary text-5xl font-semibold text-center mb-8">
-        Meet the expert people
+        Meet our Leaders
       </h2>
       <div className="flex flex-wrap justify-center gap-6 px-4">
         {expertPeople.map((expertPeople) => (

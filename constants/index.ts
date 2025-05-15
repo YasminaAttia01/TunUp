@@ -3,7 +3,6 @@ export const NAV_LINKS = [
     { href: '/', key: 'home', label: 'Home' },
     { href: '/About', key: 'about', label: 'About' },
     { href: '/Services', key: 'services', label: 'Services' },
-    { href: '/News', key: 'news', label: 'News ' },
     { href: '/Careers', key: 'careers', label: 'Careers' },
     { href: '/Contact', key: 'contact_us', label: 'Contact Us' },
   ];
@@ -19,17 +18,12 @@ export const explore = [
     {
         label: "Career",
         link: "/Careers",
-        icon: "/icons/career.png",
-    },
-    {
-        label: "News and Blogs",
-        link: "/News",
-        icon: "/icons/news.svg",
+        icon: "/icons/career.svg",
     },
     {
         label: "Contact",
         link: "/Contact",
-        icon: "/icons/contact.png",
+        icon: "/icons/contact.svg",
     },
 ]
 
@@ -42,7 +36,7 @@ export const company = [
     {
       label: "Our Services",
       link: "'/Services'",
-      icon: "/icons/service.png",
+      icon: "/icons/service.svg",
   },
   
 
@@ -51,30 +45,20 @@ export const company = [
 
 export const contact = [
     {
-        label: "+216 70258982",
-        link: "tel:+216 70258982",
-        icon: "/icons/phone.png",
+        label: "+216 70258980",
+        link: "tel:+216 70258980",
+        icon: "/icons/phone.svg",
     },
     {
         label: "tunup-hr@pixartprinting.com",
         link: "mailto:tunup-hr@pixartprinting.com",
-        icon: "/icons/mail.png",
+        icon: "/icons/mail.svg",
     },
     {
         label: "Les Berges du Lac 3 (Tunis Nord, 2015)",
         link: "https://maps.app.goo.gl/svgy57ZWmcmUJfkn7",
-        icon: "/icons/location.png",
+        icon: "/icons/location.svg",
     },
-];
-export const partners = [
-  { _id: "1", name: "SHEEE", logo: "/images/SHEEE.png" },
-  { _id: "2", name: "Tunisie Telecom", logo: "/images/TT.png" },
-  { _id: "3", name: "MKAC", logo: "/images/MKAC.svg" },
-  { _id: "4", name: "pluxee", logo: "/images/pluxee.png" },
-  { _id: "5", name: "ooredoo", logo: "/images/ooredoo.png" },
-  { _id: "6", name: "valoria", logo: "/images/valoria.png" },
-  { _id: "7", name: "alloDocteur", logo: "/images/alloDocteur.png" },
-  { _id: "8", name: "COMAR", logo: "/images/COMAR.png" },
 ];
 export const values = [
   {
@@ -146,7 +130,7 @@ export const expertPeople=[
     position:"Head of Customer Care Operation"
   },
   { id:5,
-    image:"/images/BadraGharbi.jpg",
+    image:"/images/Badra.jpg",
     name:"Badra Gharbi",
     position:"Site HR Manager"
   },
@@ -164,6 +148,21 @@ export const expertPeople=[
     image:"/images/Azza-Ayadi.jpg",
     name:"Azza Ayadi",
     position:"Product Manager"
+  },
+  { id:9,
+    image:"/images/RiadhJaouedi.jpg",
+    name:"Mohamed Riadh Jaouadi",
+    position:"ServiceDesk Team Leader"
+  },
+  { id:10,
+    image:"/images/NadhemBenYoussef.jpg",
+    name:"Nadhem Ben Youssef",
+    position:"Pricing Operations Team Leader"
+  },
+  { id:11,
+    image:"/images/KhouloudSlama.jpg",
+    name:"Khouloud Slama",
+    position:"Business Process Automation Lead"
   },
 ]
 export const Services=[

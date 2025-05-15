@@ -1,12 +1,11 @@
-"use client"
-import React, { useState, ChangeEvent, FormEvent } from 'react';
-import PhoneInput from 'react-phone-number-input';
-import 'react-phone-number-input/style.css';
+"use client";
+import React, { useState, ChangeEvent, FormEvent } from "react";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 import { toast } from "react-toastify";
-import axios from 'axios';
-import { ToastContainer } from 'react-toastify';
-import ContactInfo from './ContactInfo';
-
+import axios from "axios";
+import { ToastContainer } from "react-toastify";
+import ContactInfo from "./ContactInfo";
 
 type FormData = {
   firstName: string;
@@ -15,42 +14,44 @@ type FormData = {
   phoneNumber: string;
   subject: string;
   message: string;
+  attachment?: File | null; // Add attachment field for file upload
 };
 
 const FormSection = () => {
-  // Initialize formData with the correct type
+  // Initialize formData with the correct type, including attachment
   const [formData, setFormData] = useState<FormData>({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phoneNumber: '',
-    subject: '',
-    message: ''
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
+    subject: "",
+    message: "",
+    attachment: null,
   });
 
-  const [errors, setErrors] = useState<Partial<FormData>>({}); // Partial<FormData> allows errors to be a subset of FormData
-  
+  const [errors, setErrors] = useState<Partial<FormData>>({});
+
   const validateForm = (): boolean => {
     const newErrors: Partial<FormData> = {};
 
     // Validation rules
-    if (!formData.firstName) newErrors.firstName = 'First Name is required';
-    if (!formData.lastName) newErrors.lastName = 'Last Name is required';
+    if (!formData.firstName) newErrors.firstName = "First Name is required";
+    if (!formData.lastName) newErrors.lastName = "Last Name is required";
     if (!formData.email) {
-      newErrors.email = 'Email is required';
+      newErrors.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Email address is invalid';
+      newErrors.email = "Email address is invalid";
     }
     if (!formData.phoneNumber) {
-      newErrors.phoneNumber = 'Phone Number is required';
+      newErrors.phoneNumber = "Phone Number is required";
     } else if (!/^\+[1-9]\d{1,14}$/.test(formData.phoneNumber)) {
-      newErrors.phoneNumber = 'Phone Number is invalid';
+      newErrors.phoneNumber = "Phone Number is invalid";
     }
-    if (!formData.subject) newErrors.subject = 'Please select a subject';
+    if (!formData.subject) newErrors.subject = "Please select a subject";
     if (!formData.message) {
-      newErrors.message = 'Message is required';
+      newErrors.message = "Message is required";
     } else if (formData.message.length < 5) {
-      newErrors.message = 'Message must be at least 5 characters';
+      newErrors.message = "Message must be at least 5 characters";
     }
 
     setErrors(newErrors);
@@ -61,54 +62,67 @@ const FormSection = () => {
     e.preventDefault();
     if (validateForm()) {
       try {
-
-        const backendUrl = process.env.NEXT_PUBLIC_BACKEND_BASE_URL
-        
+        const backendUrl = process.env.NEXT_PUBLIC_BACKEND_BASE_URL;
 
         if (!backendUrl) {
-          throw new Error('Backend URL is not defined in the environment variables');
+          throw new Error("Backend URL is not defined in the environment variables");
         }
-        console.log('Form data being submitted:', formData);
-      
 
+        // Create FormData object to handle file upload
+        const formDataToSend = new FormData();
+        formDataToSend.append("firstName", formData.firstName);
+        formDataToSend.append("lastName", formData.lastName);
+        formDataToSend.append("email", formData.email);
+        formDataToSend.append("phoneNumber", formData.phoneNumber);
+        formDataToSend.append("subject", formData.subject);
+        formDataToSend.append("message", formData.message);
+        if (formData.attachment) {
+          formDataToSend.append("attachment", formData.attachment);
+        }
 
-        const response = await axios.post(`${backendUrl}/emails`, formData);
-  
-        toast.success('Message sent successfully!', {
+        console.log("Form data being submitted:", formData);
+
+        const response = await axios.post(`${backendUrl}/emails`, formDataToSend, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        });
+
+        toast.success("Message sent successfully!", {
           position: "top-right",
-          autoClose: 3000, // Close after 3 seconds
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
         });
-  
-        console.log('Form submitted successfully', response.data);
+
+        console.log("Form submitted successfully", response.data);
 
         setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          phoneNumber: '',
-          subject: '',
-          message: ''
+          firstName: "",
+          lastName: "",
+          email: "",
+          phoneNumber: "",
+          subject: "",
+          message: "",
+          attachment: null,
         });
       } catch (error) {
-    
-        toast.error('Failed to send message. Please try again.', {
+        toast.error("Failed to send message. Please try again.", {
           position: "top-right",
-          autoClose: 3000, // Close after 3 seconds
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
         });
-        console.error('Error sending message:', error);
+        console.error("Error sending message:", error);
       }
     } else {
-      toast.error('Please fix the errors in the form before submitting.', {
+      toast.error("Please fix the errors in the form before submitting.", {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
@@ -117,7 +131,7 @@ const FormSection = () => {
         draggable: true,
         progress: undefined,
       });
-      console.log('Form validation failed');
+      console.log("Form validation failed");
     }
   };
 
@@ -125,24 +139,30 @@ const FormSection = () => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
   };
 
   const handlePhoneChange = (value?: string) => {
     setFormData({
       ...formData,
-      phoneNumber: value || ''
+      phoneNumber: value || "",
     });
   };
-  
 
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setFormData({
+        ...formData,
+        attachment: e.target.files[0],
+      });
+    }
+  };
 
   return (
-    
     <section className="flex flex-col py-20 overflow-hidden max-container padding-container mt-16 animate-fade-in">
       <div className="flex flex-col lg:flex-row bg-white shadow-lg rounded-lg overflow-hidden">
-      <ContactInfo/>
+        <ContactInfo />
 
         {/* Section Formulaire */}
         <div className="p-8 w-full lg:w-2/3">
@@ -206,7 +226,7 @@ const FormSection = () => {
                     type="radio"
                     name="subject"
                     value="General Inquiry"
-                    checked={formData.subject === 'General Inquiry'}
+                    checked={formData.subject === "General Inquiry"}
                     onChange={handleChange}
                     className="text-red-600"
                   />
@@ -217,11 +237,22 @@ const FormSection = () => {
                     type="radio"
                     name="subject"
                     value="Support"
-                    checked={formData.subject === 'Support'}
+                    checked={formData.subject === "Support"}
                     onChange={handleChange}
                     className="text-red-600"
                   />
                   Support
+                </label>
+                <label className="flex items-center gap-2">
+                  <input
+                    type="radio"
+                    name="subject"
+                    value="Spontaneous Application"
+                    checked={formData.subject === "Spontaneous Application"}
+                    onChange={handleChange}
+                    className="text-red-600"
+                  />
+                  Spontaneous Application
                 </label>
               </div>
               {errors.subject && <p className="text-red-500 text-sm">{errors.subject}</p>}
@@ -237,6 +268,21 @@ const FormSection = () => {
                 className="w-full border-b-2 p-2 focus:outline-none h-24"
               />
               {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
+            </div>
+
+            {/* File Upload Section */}
+            <div className="mt-4">
+              <label className="block text-gray-600">Attachment</label>
+              <input
+                type="file"
+                onChange={handleFileChange}
+                className="w-full border-b-2 p-2 focus:outline-none"
+              />
+              {formData.attachment && (
+                <p className="text-gray-600 text-sm mt-1">
+                  Selected file: {formData.attachment.name}
+                </p>
+              )}
             </div>
 
             <button type="submit" className="mt-6 px-6 py-3 bg-red-600 text-white rounded-full">

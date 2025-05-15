@@ -9,10 +9,9 @@ export default function Home() {
   return (
     <>
       <Hero 
-      title="to the next challenge."
+      title="for the next challenge."
       highlight="UP"
-      description="TunUp (Tunis Upload&Print) hosts activities of four Cimpress business units belonging to the Upload&Print Group.     
-        We offer a better design for your digital products."
+      description="At TunUp (Tunisia Upload & Print), we support four Cimpress business units within the Upload & Print Group through high-quality Customer Care and expert Design Services. Our teams work every day to deliver personalized experiences and creative solutions that bring printed products to life—across Europe and the US. "
         buttonText="Get to Know us Better"
         buttonLink="/About"
         image="/images/tunup-background.jpg"/>

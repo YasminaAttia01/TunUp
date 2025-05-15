@@ -16,44 +16,43 @@ const FrequentQuestionsSection= () => {
       </div>
       <Accordion type="single" collapsible>
   <AccordionItem value="item-1">
-    <AccordionTrigger>How to Place Your First Order?</AccordionTrigger>
+    <AccordionTrigger>-How do I apply for a job at TunUp</AccordionTrigger>
     <AccordionContent>
-    1-Select Your Product – Browse our catalog and choose the product that suits your needs. Configure it by selecting the quantity and delivery date. <br />
-2-Create Your File – Use our Designer tool to customize your product or upload your own file after completing the purchase. <br />
-3-Proceed to Checkout – Finalize your order by making the payment. If you haven’t uploaded your print file yet, you can do so at this stage. <br />
-4-Receive Your Product – Enjoy fast and reliable delivery options tailored to your needs
+    You can apply by visiting our Careers page
+
+and submitting your application through the online portal. Make sure to upload your updated resume and fill in all required details.
     </AccordionContent>
   </AccordionItem>
   <AccordionItem value="item-2">
-    <AccordionTrigger>Can I advance or postpone an order delivery date?</AccordionTrigger>
+    <AccordionTrigger>-Can I apply for more than one position at the same time?</AccordionTrigger>
     <AccordionContent>
-    Unfortunately it&apos;s not possible.
-
-Once a file has entered the production process, it&apos;s no longer possible to change (advance or postpone) the selected delivery date.
-
-Our manufacturing system doesn&apos;t allow us to change the priority given to an order, and therefore the timescale in which it&apos;s processed.
-
-If you still have any doubts, please contact us. We&apos;ll be happy to help!
+    Yes, you may apply for multiple roles if they align with your skills and experience. However, we recommend focusing on positions that best match your qualifications to increase your chances of success. If you apply for multiple jobs, ensure your resume is tailored to each role.
     </AccordionContent>
   </AccordionItem>
   <AccordionItem value="item-3">
-    <AccordionTrigger>Where can I find my oldest orders?</AccordionTrigger>
+    <AccordionTrigger>-When will I hear back after submitting my application?</AccordionTrigger>
     <AccordionContent>
-If you need information about orders placed on our old website version, please note that you can find them in your personal area:
+    1.Initial Response: You’ll typically receive an acknowledgment email confirming we’ve received your application just after finalizing it.
 
-Log in to your Pixartprinting account
-Click on your name on top right of the home page
-Enter the personal area &quot;Your Orders&quot; section
-Click on the &quot;Pre-16/​12/​2022 orders&quot; button
-If you need the PDF invoice or other information not available in this section, please send us a request  and we&apos;ll do the necessary.
+2.Next Steps: If your qualifications match the role, a recruiter will contact you within [X weeks] to discuss next steps (e.g., an interview or assessment).
+
+3.No Updates? Due to high application volumes, we may not always notify candidates who aren’t shortlisted. However, we keep all resumes on file for future opportunities.
     </AccordionContent>
   </AccordionItem>
   <AccordionItem value="item-4">
-    <AccordionTrigger>Do I need to create an account to place an order?</AccordionTrigger>
-    <AccordionContent>
-    You need to register to place an order: creating an account allows you not only to use our services (place a print order, purchase a Design Service, order a sample pack) but also to access exclusive promotions. <br />
+    <AccordionTrigger>-Can I apply if I live abroad or require a work visa?</AccordionTrigger>
+    <AccordionContent>At TunUp we welcome applications from talented individuals worldwide. <br /> However, please note that Tunisian labor regulations require foreign employees to obtain a valid residence card ("carte de séjour") and work permit before employment. <br />
+     Here’s what you should know:
 
-Having an account permit you to receive communications, offers, invoices, keep updated about your orders/services and handle your personal information.
+1. For Applicants Already in Tunisia: <br />
+
+o You must hold a valid residence card authorizing work (e.g., student, spouse, or work visa). <br />
+
+o We may assist with work permit processes for selected candidates, subject to legal approvals. <br />
+
+2. For Applicants Abroad: <br />
+
+o We recommend securing legal residency/work authorization before applying.
     </AccordionContent>
   </AccordionItem>
 </Accordion>

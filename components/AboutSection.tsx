@@ -19,7 +19,11 @@ const AboutSection = () => {
           <p className="uppercase text-sm tracking-wide opacity-70">~ Who We Are</p>
           <h2 className="text-3xl font-bold mt-2">We Help To Get Solutions</h2>
           <p className="mt-4 text-lg opacity-80">
-          Tunup (Tunis Upload & Print) operates as a hub for four Cimpress business units within the Upload & Print Group, which coordinates various European operations. <br /> Cimpress, a strategically focused conglomerate of over a dozen autonomous businesses, prioritizes mass customization to deliver personalized goods and services with near mass production efficiency. <br /> The business units at Tunup include Pixartprinting, Easyflyer, Exaprint, and Tradeprint. <br /> Since its establishment in Tunis in 2017, Tunup has grown to a team of approximately 200 skilled professionals across customer support, graphic design, marketing, business analytics, and software engineering.
+          Tunisia Upload & Print (TunUp) is a key operations hub for several Cimpress business units within the Upload & Print group, including Pixartprinting, Exaprint, Easyflyer, and Printdeal. Established in 2018 under the name Pixartprinting Tunisie Sarl, the company rebranded to Tunup in 2023 to better reflect the diversity of brands and activities it supports. 
+
+Located in Tunis, Tunup is home to nearly 300 professionals specializing in customer support, marketing, graphic design, and analytics. While the majority of our team supports Pixartprinting, we also host growing operations for other European brands in the Cimpress group. 
+
+At Tunup, we foster a workplace culture focused on collaboration, growth, and excellence—supporting each business unit while building a strong sense of community among our teams. 
           </p>
         </div>
       

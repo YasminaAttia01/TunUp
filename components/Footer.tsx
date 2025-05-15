@@ -8,101 +8,73 @@ import { contact } from "../constants/index";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className="w-full flex flex-col items-center justify-center bg-teritiary bg-opacity-95 mt-12 shadow-[0_6px_10px_rgba(0,0,0,0.2)]">
-      {/* Lower Footer */}
-      <div className="min-w-full min-h-[40vh] flex flex-col lg:flex-row gap-10 lg:items-center lg:justify-between py-16 px-4 lg:px-16">
-        <div className="flex flex-col sm:flex-row gap-10 items-start">
-          <div className="w-60 h-full flex flex-col justify-center items-center">
-            <div className="transform hover:scale-105 transition-all duration-500 ease-in-out mx-auto relative">
-              {/* Background overlay for extra polish */}
-              <div className="absolute inset-0 rounded-3xl"></div>
-              <img
-                src="/logo/logo_tunup.png"
-                alt="logo"
-                className="w-full object-contain relative z-10"
-              />
-            </div>
-            
-          </div>
+    <footer className="w-full bg-gray-200 text-black py-8">
+      <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-start ">
+        {/* Company Section */}
+        <div className="flex-1">
+          <h3 className="font-bold mb-4 uppercase text-secondary">Company</h3>
+          <ul className="space-y-2">
+            {company.map((item, index) => (
+              <li key={index} className="flex items-center gap-2">
+                <img src={item.icon} alt={item.label} className="w-4 h-4" />
+                <Link href={item.link} className="hover:text-secondary">
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-10 sm:gap-20 lg:gap-40 items-start">
-          <div className="flex flex-col gap-4">
-            <div className="flex flex-col gap-1">
-              <h3 className="text-white font-bold rounded-full">Company</h3>
-              <div className="flex flex-row items-center gap-1">
-                <div className="w-8 h-1 bg-primary rounded-full" />
-                <div className="w-1 h-1 bg-secondary rounded-full" />
-              </div>
-            </div>
-
-            {company.map((company, index) => (
-              <div key={index} className="flex items-center gap-2">
-                <img src={company.icon} className="h-4 w-4" alt="Icon" />
-                <Link
-                  href={company.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-white hover:text-secondary text-sm"
-                >
-                  {company.label}
-                </Link>
-              </div>
-            ))}
-          </div>
-          <div className="flex flex-col gap-4">
-            <div className="flex flex-col gap-1">
-              <h3 className="text-white font-bold rounded-full">Explore</h3>
-              <div className="flex flex-row items-center gap-1">
-                <div className="w-8 h-1 bg-primary rounded-full" />
-                <div className="w-1 h-1 bg-secondary rounded-full" />
-              </div>
-            </div>
-
-            {explore.map((explore, index) => (
-              <div key={index} className="flex items-center gap-2">
-                <img src={explore.icon} className="h-4 w-4" alt="Icon" />
-                <Link
-                  href={explore.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-white hover:text-secondary text-sm"
-                >
+        {/* Resources Section */}
+        <div className="flex-1">
+          <h3 className="font-bold mb-4 uppercase text-secondary">Resources</h3>
+          <ul className="space-y-2">
+          {explore.map((explore, index) => (
+              <li key={index} className="flex items-center gap-2">
+                <img src={explore.icon} alt={explore.label} className="w-4 h-4" />
+                <Link href={explore.link} className="hover:text-secondary">
                   {explore.label}
                 </Link>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
+        </div>
 
-          <div className="flex flex-col items-start justify-center gap-4" id="contact">
-            <div className="flex flex-col gap-1">
-              <h3 className="text-white font-bold rounded-full">Contact</h3>
-              <div className="flex flex-row items-center gap-1 justify-center">
-                <div className="w-12 h-1 bg-primary rounded-full" />
-                <div className="w-1 h-1 bg-secondary rounded-full" />
-              </div>
-            </div>
-
-            {contact.map((contact, index) => (
-              <div key={index} className="flex items-center gap-2">
-                <img src={contact.icon} className="h-4 w-4" alt="Icon" />
-                <Link
-                  href={contact.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-white hover:text-secondary text-sm"
-                >
+        {/* Product Section */}
+        <div className="flex-1">
+          <h3 className="font-bold mb-4 uppercase text-secondary">Product</h3>
+          <ul className="space-y-2">
+          {contact.map((contact, index) => (
+              <li key={index} className="flex items-center gap-2">
+                <img src={contact.icon} alt={contact.label} className="w-4 h-4" />
+                <Link href={contact.link} className="hover:text-secondary">
                   {contact.label}
                 </Link>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
+        </div>
+
+        {/* Newsletter Section */}
+        <div className="flex-1 text-center">
+          <img
+            src="/logo/logo_tunup.png"
+            alt="TunUp Logo"
+            className="w-24 mx-auto mb-4"
+          />
+          
+          <button className="bg-secondary text-white p-2 rounded-md">
+            <Link href="/contact">Contact Us</Link>
+          </button>
         </div>
       </div>
-      <div className="w-full h-[1px] bg-white mb-6"></div>
 
-      <div className="w-full h-16 flex items-center justify-center text-black font-semibold text-sm text-center">
-        <span> &copy; All Copyright {currentYear} TunUp</span>
+      {/* Bottom Section */}
+      <div className="w-full text-center py-4 mt-8">
+        <hr className="border-gray-700 mb-4" />
+        <div className="flex justify-center items-center gap-4">
+          <p>Copyright ©{currentYear} TunUp</p>
+        </div>
       </div>
     </footer>
   );

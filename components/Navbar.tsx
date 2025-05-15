@@ -13,19 +13,19 @@ const Navbar = () => {
 
 
   return (
-    <nav className="flexBetween max-w-screen-xl mx-auto h-16 relative z-30 bg-teritiary mt-4 py-2 px-6 rounded-full shadow-lg">
+    <nav className="flexBetween max-w-screen-xl mx-auto h-16 relative z-30 mt-4 py-2 px-6">
       <Link href="/" className="flex items-center">
         <Image 
           src="/logo/logo_tunup.png" 
           alt="logo" 
-          width={90} 
-          height={40} 
+          width={150} 
+          height={150} 
           priority 
         />
       </Link>
 
       {/* Desktop Navigation */}
-      <ul className="hidden lg:flex items-center gap-8 text-white text-lg font-medium">
+      <ul className="hidden lg:flex items-center gap-8 text-black text-lg font-medium">
         {NAV_LINKS.map((link) => (
           <li
             key={link.key}

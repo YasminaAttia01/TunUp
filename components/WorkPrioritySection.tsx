@@ -11,29 +11,29 @@ const WorkPrioritySection = () => {
            
             <div className="flex flex-col items-center">
               <div className="w-40 h-20 bg-primary rounded-t-full flex items-end justify-center">
-                <h3 className="text-white font-bold text-lg">Hybrid Work</h3>
+                <h3 className="text-white font-bold text-lg">Transport</h3>
               </div>
               <p className="mt-4 text-gray-600 text-sm max-w-xs">
-              Hybrid work provides employees with greater flexibility, autonomy, and work-life integration, which can lead to higher job satisfaction.
+              TunUp provides organized taxi transportation to help employees commute safely and comfortably. 
               </p>
             </div>
   
         
             <div className="flex flex-col items-center">
               <div className="w-40 h-20 bg-primary rounded-t-full flex items-end justify-center">
-                <h3 className="text-white font-bold text-lg">Unlimited PTO</h3>
+                <h3 className="text-white font-bold text-lg">E-learning </h3>
               </div>
               <p className="mt-4 text-gray-600 text-sm max-w-xs">
-              Unlimited PTO offers employees greater flexibility, reduced stress, and improved work-life balance.             </p>
+              We support continuous learning by giving our employees access to professional e-learning platforms.              </p>
             </div>
   
          
             <div className="flex flex-col items-center">
               <div className="w-40 h-20 bg-primary rounded-t-full flex items-end justify-center">
-                <h3 className="text-white font-bold text-lg">Flexible Hours</h3>
+                <h3 className="text-white font-bold text-lg">Environment</h3>
               </div>
               <p className="mt-4 text-gray-600 text-sm max-w-xs">
-              Flexible hours improve work-life balance, productivity, and job satisfaction while supporting mental health and attracting talent. 
+              At TunUp, we value employee well-being through team-building activities that encourages collaboration and motivation. 
               </p>
             </div>
           </div>

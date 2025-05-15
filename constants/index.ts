@@ -103,7 +103,7 @@ export const businessUnits = [
     link: "/unit3",
   },
   {
-    image: "/images/druke.png",
+    image: "/logo/druke.png",
     text: "Printdeal.be offers customizable online printing services for products like flyers and business cards, with free design templates available.",
     link: "https://www.printdeal.be/nl",
   },

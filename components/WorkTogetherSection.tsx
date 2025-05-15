@@ -15,7 +15,7 @@ const WorkTogetherSection = () => {
             Work together, <br />
             <span className="text-primary">Wherever you are</span>
           </h1>
-          <p className="mt-4 text-lg text-teritiary">
+          <p className="mt-4 text-lg text-black">
             Our skilled team delivers customized products with exceptional efficiency and service.
             <br /> Partner with us for innovative solutions that stand out!
           </p>
